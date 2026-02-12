@@ -30,5 +30,16 @@ export const renderProducts = (products) => {
 
 
 export const renderProductDetails = (product) => {
-
-};
+    const productDetails = document.querySelector('#product-details')
+    productDetails.removeAttribute('hidden')
+    // Getting specific product details using HTML
+    const title = productDetails.querySelector('#product-title')
+    const thumbnail = productDetails.querySelector('#product-thumbnail')
+    const price = productDetails.querySelector('#product-price')
+    const description = productDetails.querySelector('#product-description')
+    // Displaying
+    title.textContent = product.title
+    thumbnail.src = product.thumbnail
+    price.textContent = product.price
+    description.textContent = product.description
+}

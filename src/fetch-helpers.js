@@ -24,7 +24,21 @@ return fetch('https://dummyjson.com/docs/products')
 };
 
 export const getProductById = (id) => {
-
+return fetch(`https://dummyjson.com/docs/products#products${id}`)
+    .then((response) => {
+        if (!response.ok) {
+        throw Error(`Fetch failed. ${response.status} ${response.statusText}`);
+        }
+        return response.json();
+    }) .then(product => {
+        return { 
+        data: product, 
+        error: null };
+    }) .catch(error => {
+        return { 
+        data: null, 
+        error: error };
+    })
 };
 
 export const searchProducts = (query) => {
